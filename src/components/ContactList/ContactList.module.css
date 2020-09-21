@@ -1,0 +1,27 @@
+.List {
+  list-style: none;
+  padding: 0;
+  /* border: 2px solid grey; */
+}
+
+.ListItem {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  min-height: 50px;
+  border: 2px #70ab8f solid;
+  border-radius: 10px;
+  color: darkolivegreen;
+}
+
+.button {
+  align-items: flex-end;
+  height: 30px;
+  background-color: rgb(212, 231, 179);
+  border: 2px #70ab8f solid;
+  border-radius: 6px;
+  margin: auto 0;
+  color: darkolivegreen;
+}

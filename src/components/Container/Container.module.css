@@ -1,0 +1,9 @@
+.Container {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 15px;
+  border: 4px solid darkolivegreen;
+  border-radius: 20px;
+  background-color: #f7eed5;
+}

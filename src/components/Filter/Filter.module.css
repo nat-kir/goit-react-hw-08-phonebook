@@ -1,0 +1,32 @@
+.label {
+  margin-top: 10px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 2px #70ab8f solid;
+}
+.labelName {
+  color: darkolivegreen;
+}
+
+.input {
+  margin-left: 10px;
+  height: 35px;
+  border: 2px #70ab8f solid;
+  border-radius: 6px;
+  margin: auto 0;
+  width: 175px;
+}
+.input::placeholder {
+  color: lightgrey;
+  font-style: italic;
+  font-size: 14px;
+  padding: 10px;
+}
+.input:focus {
+  outline: none;
+  border: 2px solid #dc5b21;
+  color: darkolivegreen;
+  padding-left: 10px;
+}

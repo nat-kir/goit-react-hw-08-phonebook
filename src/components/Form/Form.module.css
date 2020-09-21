@@ -1,0 +1,47 @@
+.form {
+  border: 2px #70ab8f solid;
+  border-radius: 10px;
+  padding: 5px 0 10px;
+}
+.label {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  margin: 0 auto;
+  /* border: 1px solid grey; */
+}
+.input {
+  margin-left: 10px;
+  height: 35px;
+  border: 2px #70ab8f solid;
+  border-radius: 6px;
+  margin: auto 0;
+  width: 175px;
+}
+.input::placeholder {
+  color: lightgrey;
+  font-style: italic;
+  padding: 10px;
+  font-size: 14px;
+}
+.input:focus {
+  outline: none;
+  border: 2px solid #dc5b21;
+  color: darkolivegreen;
+  padding-left: 10px;
+}
+
+.labelName {
+  color: darkolivegreen;
+}
+.button {
+  display: block;
+  align-items: flex-end;
+  height: 30px;
+  background-color: rgb(212, 231, 179);
+  border: 2px #70ab8f solid;
+  border-radius: 6px;
+  margin: 10px auto 0;
+
+  color: darkolivegreen;
+}
