@@ -2,7 +2,7 @@
   "name": "goit-react-hw-02-phonebook2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nat-kir.github.io/goit-react-hw-02-phonebook",
+  "homepage": "https://nat-kir.github.io/goit-react-hw-03-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

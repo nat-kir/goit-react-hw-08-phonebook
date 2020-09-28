@@ -9,15 +9,28 @@ import './index.css';
 class App extends Component {
   state = {
     contacts: [
-      { id: '1', name: 'Brad Pitt', number: '0591234567' },
-      { id: '2', name: 'Anne Hathaway', number: '0593452378' },
-      { id: '3', name: 'Natalie Portman', number: '0595673427' },
-      { id: '4', name: 'Salma Hayek', number: '0594567345' },
-      { id: '5', name: 'George Clooney', number: '0594675189' },
+      // { id: '1', name: 'Brad Pitt', number: '0591234567' },
+      // { id: '2', name: 'Anne Hathaway', number: '0593452378' },
+      // { id: '3', name: 'Natalie Portman', number: '0595673427' },
+      // { id: '4', name: 'Salma Hayek', number: '0594567345' },
+      // { id: '5', name: 'George Clooney', number: '0594675189' },
     ],
     filter: '',
   };
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
@@ -88,5 +101,3 @@ class App extends Component {
 }
 
 export default App;
-
-//
