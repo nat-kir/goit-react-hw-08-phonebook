@@ -4,8 +4,7 @@ import styles from './Form.module.css';
 
 class Form extends Component {
   static propTypes = {
-    name: PropTypes.string,
-    number: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired,
   };
 
   state = {
@@ -18,7 +17,16 @@ class Form extends Component {
     this.setState({ [name]: value });
   };
   handleSubmit = e => {
+    const { name, number } = this.state;
     e.preventDefault();
+    if (name === '') {
+      alert('Please, give a name for new contact');
+      return;
+    }
+    if (number === '') {
+      alert('Please, add a number');
+      return;
+    }
     this.props.onSubmit(this.state);
     this.reset();
   };
@@ -28,10 +36,15 @@ class Form extends Component {
 
   render() {
     return (
-      <form className={styles.form} onSubmit={this.handleSubmit}>
+      <form
+        className={styles.form}
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+      >
         <label className={styles.label}>
-          <p className={styles.labelName}>Name:</p>
+          <p className={styles.labelName}>Name:&#42;</p>
           <input
+            required
             className={styles.input}
             type="text"
             placeholder="ex. Anne Hathaway"
@@ -41,11 +54,12 @@ class Form extends Component {
           />
         </label>
         <label className={styles.label}>
-          <p className={styles.labelName}>Number:</p>
+          <p className={styles.labelName}>Number:&#42;</p>
           <input
+            required
             className={styles.input}
-            type="text"
-            placeholder="ex. +12027953213"
+            type="number"
+            placeholder="ex. 0532455678"
             value={this.state.number}
             name="number"
             onChange={this.handleInputChange}

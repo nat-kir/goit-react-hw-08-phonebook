@@ -9,11 +9,11 @@ import './index.css';
 class App extends Component {
   state = {
     contacts: [
-      { id: '1', name: 'Brad Pitt', number: '+12345678923' },
-      { id: '2', name: 'Anne Hathaway', number: '+19876543234' },
-      { id: '3', name: 'Natalie Portman', number: '+12334455645' },
-      { id: '4', name: 'Salma Hayek', number: '+13845467549' },
-      { id: '5', name: 'George Clooney', number: '+14367498567' },
+      { id: '1', name: 'Brad Pitt', number: '0591234567' },
+      { id: '2', name: 'Anne Hathaway', number: '0593452378' },
+      { id: '3', name: 'Natalie Portman', number: '0595673427' },
+      { id: '4', name: 'Salma Hayek', number: '0594567345' },
+      { id: '5', name: 'George Clooney', number: '0594675189' },
     ],
     filter: '',
   };
@@ -33,26 +33,26 @@ class App extends Component {
     };
 
     if (
-      contacts.find(contact => {
+      contacts.some(contact => {
         return name.toLowerCase() === contact.name.toLowerCase();
       })
     ) {
       alert(`${name} is already in contacts`);
-    } else if (
+      return;
+    }
+
+    if (
       contacts.find(contact => {
         return number === contact.number;
       })
     ) {
       alert(`This number ${number} is already in contacts`);
-    } else if (name === '') {
-      alert('Please, give a name for new contact');
-    } else if (number === '') {
-      alert('Please, add a number');
-    } else {
-      this.setState(prevState => ({
-        contacts: [newContact, ...prevState.contacts],
-      }));
+      return;
     }
+
+    this.setState(prevState => ({
+      contacts: [newContact, ...prevState.contacts],
+    }));
   };
 
   filterContacts = e => {
@@ -75,7 +75,6 @@ class App extends Component {
       <Container>
         <h2>Phonebook</h2>
         <Form onSubmit={this.addContact} />
-
         <Filter value={filter} onChange={this.filterContacts} />
 
         <h2>Contacts</h2>
@@ -89,3 +88,5 @@ class App extends Component {
 }
 
 export default App;
+
+//
