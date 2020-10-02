@@ -55,7 +55,7 @@ class App extends Component {
     }
 
     if (
-      contacts.find(contact => {
+      contacts.some(contact => {
         return number === contact.number;
       })
     ) {
