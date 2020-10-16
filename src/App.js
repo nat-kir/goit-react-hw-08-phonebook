@@ -4,7 +4,10 @@ import Container from './components/Container';
 import ContactList from './components/ContactList';
 import Form from './components/Form';
 import Filter from './components/Filter';
-import './index.css';
+import AppName from './components/AppName';
+import Notification from './components/Notification';
+import { CSSTransition } from 'react-transition-group';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -16,6 +19,8 @@ class App extends Component {
       // { id: '5', name: 'George Clooney', number: '0594675189' },
     ],
     filter: '',
+    notification: '',
+    notificationIsVisible: false,
   };
 
   componentDidMount() {
@@ -50,7 +55,10 @@ class App extends Component {
         return name.toLowerCase() === contact.name.toLowerCase();
       })
     ) {
-      alert(`${name} is already in contacts`);
+      this.setState({
+        notification: `Contact "${name}" is already exist`,
+        notificationIsVisible: true,
+      });
       return;
     }
 
@@ -59,7 +67,10 @@ class App extends Component {
         return number === contact.number;
       })
     ) {
-      alert(`This number ${number} is already in contacts`);
+      this.setState({
+        notification: `Number "${number}" is already exist`,
+        notificationIsVisible: true,
+      });
       return;
     }
 
@@ -81,12 +92,12 @@ class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { filter, notification, notificationIsVisible } = this.state;
     const filteredContacts = this.getFilteredContacts();
 
     return (
       <Container>
-        <h2>Phonebook</h2>
+        <AppName />
         <Form onSubmit={this.addContact} />
         <Filter value={filter} onChange={this.filterContacts} />
 
@@ -95,10 +106,19 @@ class App extends Component {
           contacts={filteredContacts}
           onDeleteContact={this.deleteContact}
         />
+        <CSSTransition
+          in={notificationIsVisible}
+          // appear={true}
+          timeout={3000}
+          classNames="Notification-slideIn"
+          unmountOnExit
+          onEntered={() => this.setState({ notificationIsVisible: false })}
+        >
+          <Notification message={notification} />
+        </CSSTransition>
       </Container>
     );
   }
 }
 
 export default App;
-//

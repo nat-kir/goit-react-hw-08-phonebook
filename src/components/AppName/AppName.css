@@ -1,0 +1,9 @@
+.AppName-slideIn-appear {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.AppName-slideIn-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms linear;
+}
