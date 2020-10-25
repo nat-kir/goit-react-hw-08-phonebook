@@ -1,0 +1,19 @@
+.Notification-slideIn-enter {
+  opacity: 0;
+
+  transform: translateX(100%);
+}
+.Notification-slideIn-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms linear;
+}
+.Notification-slideIn-exit {
+  opacity: 1;
+  transform: stranslateX(0);
+}
+.Notification-slideIn-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 250ms linear;
+}
