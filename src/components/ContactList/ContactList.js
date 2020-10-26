@@ -5,6 +5,7 @@ import styles from './ContactList.module.css';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import fadeStyles from './ContactListItem-fade.module.css';
+import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
 // import contactActions from '../../redux/phonebook/phonebook-actions';
 
 const ContactList = ({ contacts }) => {
@@ -27,16 +28,9 @@ ContactList.propTypes = {
       id: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  // onDeleteContact: PropTypes.func.isRequired,
-};
-const mapStateToProps = state => {
-  const { items, filter } = state.contacts;
-  const filteredContacts = items.filter(item =>
-    item.name.toLowerCase().includes(filter.toLowerCase()),
-  );
-  return {
-    contacts: filteredContacts,
-  };
 };
 
+const mapStateToProps = state => ({
+  contacts: contactsSelectors.getFilteredContacts(state),
+});
 export default connect(mapStateToProps)(ContactList);

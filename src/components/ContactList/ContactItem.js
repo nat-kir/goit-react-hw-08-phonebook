@@ -4,6 +4,7 @@ import styles from './ContactList.module.css';
 import { connect } from 'react-redux';
 // import contactsActions from '../../redux/phonebook/phonebook-actions';
 import contactOperations from '../../redux/phonebook/phonebookOperations';
+import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
 
 const ContactItem = ({ id, name, number, onDeleteContact }) => {
   return (
@@ -23,8 +24,8 @@ ContactItem.propTypes = {
   number: PropTypes.number.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
-const mapStateToProps = (state, ownProps) => {
-  const item = state.contacts.items.find(item => item.id === ownProps.id);
+const mapState = (state, ownProps) => {
+  const item = contactsSelectors.getContactById(state, ownProps.id);
   return { ...item };
 };
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -33,4 +34,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     console.log(ownProps.id);
   },
 });
-export default connect(mapStateToProps, mapDispatchToProps)(ContactItem);
+export default connect(mapState, mapDispatchToProps)(ContactItem);

@@ -7,6 +7,7 @@ import AppName from './components/AppName';
 import './App.css';
 import contactOperations from './redux/phonebook/phonebookOperations';
 import { connect } from 'react-redux';
+import contactSelectors from './redux/phonebook/phonebookSelectors';
 
 class App extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoadingContact: state.contacts.loading,
+  isLoadingContact: contactSelectors.getLoading(state),
 });
 const mapDispatchToProps = {
   onFetchContacts: contactOperations.fetchContacts,

@@ -7,6 +7,7 @@ import conntactOperations from '../../redux/phonebook/phonebookOperations';
 import Notification from '../Notification';
 import { CSSTransition } from 'react-transition-group';
 import './Form-notification.css';
+import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
 
 class Form extends Component {
   static propTypes = {
@@ -122,7 +123,7 @@ class Form extends Component {
   }
 }
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
+  contacts: contactsSelectors.getContacts(state),
 });
 const mapDispatchToProps = {
   onAddContact: conntactOperations.addContact,
