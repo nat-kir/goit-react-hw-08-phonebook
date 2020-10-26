@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactList.module.css';
 import { connect } from 'react-redux';
-// import contactsActions from '../../redux/phonebook/phonebook-actions';
 import contactOperations from '../../redux/phonebook/phonebookOperations';
 import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
 

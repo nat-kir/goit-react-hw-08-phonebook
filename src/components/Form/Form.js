@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 import { connect } from 'react-redux';
-// import contactActions from '../../redux/phonebook/phonebook-actions';
 import conntactOperations from '../../redux/phonebook/phonebookOperations';
 import Notification from '../Notification';
 import { CSSTransition } from 'react-transition-group';

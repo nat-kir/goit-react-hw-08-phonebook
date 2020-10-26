@@ -6,7 +6,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import fadeStyles from './ContactListItem-fade.module.css';
 import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
-// import contactActions from '../../redux/phonebook/phonebook-actions';
 
 const ContactList = ({ contacts }) => {
   return (
