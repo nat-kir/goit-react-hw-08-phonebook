@@ -20,7 +20,7 @@ const ContactItem = ({ id, name, number, onDeleteContact }) => {
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
 const mapState = (state, ownProps) => {
