@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import conntactOperations from '../../redux/phonebook/phonebookOperations';
 import Notification from '../Notification';
 import { CSSTransition } from 'react-transition-group';
+import '../../styles/base.scss';
 import './Form-notification.css';
 import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
 import { Form, Button, Row, Col } from 'react-bootstrap';
