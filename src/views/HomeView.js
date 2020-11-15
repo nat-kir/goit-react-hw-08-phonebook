@@ -21,8 +21,12 @@ const HomeView = ({ isAuthenticated }) => {
         and React Bootstrap.
       </p>
 
-      {!isAuthenticated && <p>Please, Sign Up to have access to phonebook.</p>}
-      <p>Natalia Kiriunina</p>
+      {!isAuthenticated && (
+        <p style={{ marginTop: '20px' }}>
+          Please, Sign Up to have access to phonebook.
+        </p>
+      )}
+      <p style={{ margin: '20px 0' }}>Natalia Kiriunina</p>
       {isAuthenticated ? (
         <Button href="/contacts" variant="primary" style={{ opacity: '0.7' }}>
           My contacts
