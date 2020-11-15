@@ -1,6 +1,7 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './AppName.css';
+import '../../styles/base.scss';
 
 const AppName = () => {
   return (

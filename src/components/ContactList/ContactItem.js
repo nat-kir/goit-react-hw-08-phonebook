@@ -1,20 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ContactList.module.css';
+// import styles from './ContactList.module.css';
 import { connect } from 'react-redux';
 import contactOperations from '../../redux/phonebook/phonebookOperations';
 import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
+import { ListGroup, Button, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/base.scss';
 
 const ContactItem = ({ id, name, number, onDeleteContact }) => {
   return (
-    <li className={styles.ListItem} key={id}>
-      <p>
-        {name} : {number}
-      </p>
-      <button className={styles.button} type="button" onClick={onDeleteContact}>
-        Удалить
-      </button>
-    </li>
+    <ListGroup.Item>
+      <Row>
+        <Col sm="9">
+          <p
+            style={{ display: 'block', paddingTop: '7px', margin: 'auto 0px' }}
+          >
+            {name} : {number}
+          </p>
+        </Col>
+        <Col sm="3">
+          <Button
+            variant="outline-danger"
+            type="button"
+            onClick={onDeleteContact}
+            style={{ opacity: '0.7' }}
+          >
+            Delete
+          </Button>
+        </Col>
+      </Row>
+    </ListGroup.Item>
   );
 };
 

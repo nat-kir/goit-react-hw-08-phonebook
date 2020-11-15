@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Form.module.css';
+// import styles from './Form.module.css';
 import { connect } from 'react-redux';
 import conntactOperations from '../../redux/phonebook/phonebookOperations';
 import Notification from '../Notification';
 import { CSSTransition } from 'react-transition-group';
 import './Form-notification.css';
 import contactsSelectors from '../../redux/phonebook/phonebookSelectors';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Form extends Component {
+class ContactForm extends Component {
   static propTypes = {
     onAddContact: PropTypes.func.isRequired,
   };
@@ -83,7 +85,7 @@ class Form extends Component {
         >
           <Notification message={notification} />
         </CSSTransition>{' '}
-        <form
+        {/* <form
           className={styles.form}
           autoComplete="off"
           onSubmit={this.handleSubmit}
@@ -116,7 +118,49 @@ class Form extends Component {
           <button className={styles.button} type="submit">
             Add contact
           </button>
-        </form>
+        </form> */}
+        <Form autoComplete="off" onSubmit={this.handleSubmit}>
+          <Form.Group as={Row} controlId="formPlaintextEmail">
+            <Form.Label column sm="3">
+              Name:&#42;
+            </Form.Label>
+            <Col sm="9">
+              <Form.Control
+                required
+                // className={styles.input}
+                type="text"
+                placeholder="ex. Anne Hathaway"
+                value={this.state.name}
+                name="name"
+                onChange={this.handleInputChange}
+              />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Label column sm="3">
+              Number:&#42;
+            </Form.Label>
+            <Col sm="9">
+              <Form.Control
+                required
+                // className={styles.input}
+                type="number"
+                placeholder="ex. 0532455678"
+                value={this.state.number}
+                name="number"
+                onChange={this.handleInputChange}
+              />
+            </Col>
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit"
+            style={{ margin: '0 auto', display: 'block', opacity: '0.7' }}
+          >
+            Add contact
+          </Button>
+        </Form>
       </>
     );
   }
@@ -127,4 +171,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   onAddContact: conntactOperations.addContact,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

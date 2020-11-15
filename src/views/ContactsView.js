@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '../components/ContactsAppContainer';
 import ContactList from '../components/ContactList';
-import Form from '../components/Form';
+import ContactForm from '../components/Form';
 import Filter from '../components/Filter';
 import AppName from '../components/AppName';
 import contactOperations from '../redux/phonebook/phonebookOperations';
@@ -16,7 +16,7 @@ class ContactsView extends Component {
     return (
       <Container>
         <AppName />
-        <Form />
+        <ContactForm />
         <Filter />
         <h2>Contacts</h2>
         {this.props.isLoading && <h2>Loading...</h2>}

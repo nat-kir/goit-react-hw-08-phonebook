@@ -1,5 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
-import './App.css';
+import './styles/base.scss';
 import { Switch } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Container from './components/Container';

@@ -1,26 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import '../../styles/base.scss';
 import { connect } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
+import { Nav } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navigation = ({ isAuthenticated }) => (
-  <nav>
-    <NavLink to="/" exact className="NavLink" activeClassName="NavLink--active">
-      Main
-    </NavLink>
-
-    {isAuthenticated && (
-      <NavLink
-        to="/contacts"
-        exact
-        className="NavLink"
-        activeClassName="NavLink--active"
-      >
-        Contacts
-      </NavLink>
-    )}
-  </nav>
+  <Nav className="mr-auto">
+    <Nav.Link href="/">Main</Nav.Link>
+    {isAuthenticated && <Nav.Link href="/contacts">Contacts</Nav.Link>}
+  </Nav>
 );
 
 const mapStateToProps = state => ({
